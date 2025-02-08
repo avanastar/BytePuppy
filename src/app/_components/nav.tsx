@@ -5,9 +5,9 @@ import { useTheme } from "next-themes";
 
 import { Moon, Sun } from "@mynaui/icons-react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+// import { usePathname } from "next/navigation";
+// import { cn } from "@/lib/utils";
+// import { useEffect, useState } from "react";
 
 // const navItems = [
 //   {
@@ -22,8 +22,8 @@ import { useEffect, useState } from "react";
 
 export const Nav = () => {
   const { theme, setTheme } = useTheme();
-  const pathname = usePathname();
-  const isActive = (href: string) => pathname === href;
+  // const pathname = usePathname();
+  // const isActive = (href: string) => pathname === href;
 
   return (
     <motion.nav
