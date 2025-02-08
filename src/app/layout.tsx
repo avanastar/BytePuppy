@@ -6,6 +6,9 @@ import { type Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
+import { Nav } from "./_components/nav";
 
 export const metadata: Metadata = {
   title: "BytePuppy",
@@ -59,9 +62,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="bytepuppy-theme"
+        >
+          <TRPCReactProvider>
+            <Nav />
+            <main className="mt-16 min-h-screen">{children}</main>
+          </TRPCReactProvider>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <Toaster />
       </body>
     </html>
   );
